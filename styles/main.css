@@ -1,5 +1,161 @@
-/* linje för strukturuppbyggnad */
-body * {
-    margin: 0.3rem;
-    border: 1px solid lightblue;
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+h2 {
+    font-weight: normal;
+}
+
+body {
+
+    /*ställer om rem från 16 px till 14*/
+    font-size: 87.5%;
+
+
+    min-height: 100vh;
+    background-image: url("../images/enkatt.jpg");
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 0rem 1rem 0rem;
+    align-items: center;
+    gap: 1rem;
+
+    font-family: Arial,
+        Helvetica,
+        sans-serif
+}
+
+h1 {
+    color: white;
+    font-size: 2rem;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+#activity-cards_section {
+
+    /* background-color: rgba(178, 248, 180, 0.276); */
+
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 420px;
+
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr;
+
+}
+
+
+.activity-card {
+    background-color: rgba(190, 190, 190, 0.6);
+    border-radius: 1rem;
+    padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+    max-height: 420px;
+
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    text-align: center;
+}
+
+.card-content_container {
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow: auto;
+    /* overflow-x: hidden; */
+}
+
+.card-item {
+    background-color: rgb(255, 255, 255, 0.6);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+
+button {
+    all: unset;
+    color: white;
+    background-color: rgba(190, 190, 190, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+button:hover {
+
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(190, 190, 190);
+}
+
+#randomize-background_btn {
+    color: #222222;
+    margin-top: auto;
+}
+
+#randomize-background_btn:hover {
+    color: whitesmoke;
+}
+
+
+.activity-card button:last-child {
+    margin: auto
+}
+
+.label {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+    display: inline-block;
+}
+
+textarea {
+    all: unset;
+    background-color: rgb(255, 255, 255, 0.6);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    height: 100%;
+}
+
+#date-and-time_section {
+    background-color: rgba(190, 190, 190, 0.6);
+    width: 300px;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: auto;
+}
+
+@media (min-width: 650px) {
+
+    #activity-cards_section {
+
+        max-width: unset;
+        grid-template-columns: repeat(auto-fit, 310px);
+        justify-content: center;
+    }
+
+    /* .activity-card {
+        min-height: 200px;
+        max-width: 420px;
+    } */
+
+    .activity-card {
+        height: clamp(250px, 60vh, 420px);
+    }
+
 }
