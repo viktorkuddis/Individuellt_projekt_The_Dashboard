@@ -1,0 +1,5 @@
+/* linje för strukturuppbyggnad */
+body * {
+    margin: 0.3rem;
+    border: 1px solid lightblue;
+}
