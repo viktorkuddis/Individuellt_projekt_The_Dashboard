@@ -41,7 +41,9 @@ function clockAndDate() {
     //console.log(`${hour}:${min}:${sec}   ${nameOfDay[day]} ${date} ${nameOfMonths[month]} ${year}`);
 
     //skapar en string av mina datumkomponenter
-    timeContainer.innerHTML = `${hour}:${min}:${sec}`;
+    timeContainer.innerHTML = `${hour}:${min}`;
+
+
     dateContainer.innerHTML = `${nameOfDay[day]} ${date} ${nameOfMonths[month]} ${year}`;
 
 }
