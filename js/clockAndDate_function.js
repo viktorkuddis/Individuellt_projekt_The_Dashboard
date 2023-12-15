@@ -40,6 +40,8 @@ function clockAndDate() {
 
     //console.log(`${hour}:${min}:${sec}   ${nameOfDay[day]} ${date} ${nameOfMonths[month]} ${year}`);
 
-
+    //skapar en string av mina datumkomponenter
+    timeContainer.innerHTML = `${hour}:${min}:${sec}`;
+    dateContainer.innerHTML = `${nameOfDay[day]} ${date} ${nameOfMonths[month]} ${year}`;
 
 }
