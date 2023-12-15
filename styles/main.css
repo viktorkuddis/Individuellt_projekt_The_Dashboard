@@ -24,7 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1rem 0rem 1rem 0rem;
+    padding: 1rem 0rem 2rem 0rem;
     align-items: center;
     gap: 1rem;
 
@@ -133,11 +133,24 @@ textarea {
 
 #date-and-time_section {
     background-color: rgba(190, 190, 190, 0.6);
-    width: 300px;
+    width: clamp(10%, 300px, calc(100% - 1rem));
     border-radius: 1rem;
     padding: 0.5rem;
     text-align: center;
     margin-bottom: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#time-container {
+    font-weight: bolder;
+}
+
+#date-container {
+    color: #222222
 }
 
 @media (min-width: 650px) {
