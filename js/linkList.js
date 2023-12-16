@@ -1,5 +1,7 @@
-const addLink_btn = document.getElementById("add-link_btn");
 const snabblänkar_activityCard = document.getElementById("snabblänkar_activity-card")
+
+// Lagra knapp:
+const addLink_btn = document.getElementById("add-link_btn");
 
 const inputComponent = `
 <div id="add-link_component">
@@ -18,11 +20,26 @@ const inputComponent = `
 </div>
 `
 
-
-//när knappen klickas...
+// när initiala knappen klickas...
 addLink_btn.addEventListener("click", () => {
-    //döljer knappen
-    addLink_btn.style.display = "none";
-
+    // initialknapp tars bort...
+    snabblänkar_activityCard.removeChild(addLink_btn);
+    // inputkomponent läggs till...
     snabblänkar_activityCard.innerHTML += inputComponent;
-})
+
+    //område för knappar:
+    const addLinkButtons_container = document.getElementById("add-link-buttons_container");
+
+    //Eventlyssnare på knapparna:
+    addLinkButtons_container.addEventListener("click", (event) => {
+
+        //om exitknapp trycks på...
+        if (event.target.id == "exit-add-Link_btn") {
+            //tar bort hela add-link-komponenten
+            snabblänkar_activityCard.removeChild(document.getElementById("add-link_component"));
+            //Visar initiala knapp igen: 
+            snabblänkar_activityCard.appendChild(addLink_btn);
+        }
+
+    })
+});
