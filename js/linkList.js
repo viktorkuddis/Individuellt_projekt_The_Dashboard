@@ -5,7 +5,9 @@ const linksList_array = JSON.parse(localStorage.getItem("linkList")) || []
 
 
 //Kortet för alla länkar
-const snabblänkar_activityCard = document.getElementById("snabblänkar_activity-card")
+const snabblänkar_activityCard = document.getElementById("snabblänkar_activity-card");
+//container för länkItems
+const cardContent_Container = snabblänkar_activityCard.querySelector(".card-content_container")
 
 // Lagra lägg-till-knapp:
 const addLink_btn = document.getElementById("add-link_btn");
@@ -80,9 +82,41 @@ addLink_btn.addEventListener("click", () => {
 });
 
 
+/* ========== FUNKTION ÅTERGÅR FRÅN ADDLINK_DIALOG ========== */
 function returnFromAddlinkDialog() {
     //tar bort hela add-link-komponenten
     snabblänkar_activityCard.removeChild(document.getElementById("add-link_component"));
     //Visar initiala knapp igen: 
     snabblänkar_activityCard.appendChild(addLink_btn);
+};
+
+
+/* ========== FUNKTION RENDERAR LÄNKLISTAN ========== */
+renderLinkList()
+
+function renderLinkList() {
+    console.log(linksList_array)
+
+    let linkList_Components = linksList_array.map((item) => {
+        return `
+        <div class="card-item">
+            <a href="${item.link}" target="_blank">
+                <p>${item.name}</p> <div class="cross">&#10005</div>
+            </a>
+        </div>
+        `
+    });
+
+    linkList_Components = linkList_Components.join(" ");
+
+    cardContent_Container.innerHTML = linkList_Components
+
+
+    console.log(cardContent_Container)
+
+
+
+
+    console.log(linkList_Components)
+
 };
