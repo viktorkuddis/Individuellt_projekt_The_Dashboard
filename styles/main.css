@@ -160,6 +160,51 @@ textarea {
     color: #222222
 }
 
+#add-link_component {
+    display: flex;
+    /* background-color: #222ff2; */
+    gap: 0.5rem;
+}
+
+#add-link-input_container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: left;
+    gap: 0.2rem;
+}
+
+#add-link-input_container>input,
+#add-link-input_container>p {
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+}
+
+
+input {
+    all: unset;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#add-link-buttons_container {
+    display: flex;
+}
+
+#add-link-buttons_container button {
+    width: max-content;
+    font-size: smaller;
+    margin: unset;
+    margin-top: auto;
+}
+
+#confirm-add-Link_btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    ;
+}
+
+
+
+
+
 @media (min-width: 650px) {
 
     #activity-cards_section {
