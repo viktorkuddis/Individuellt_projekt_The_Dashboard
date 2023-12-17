@@ -1,122 +1,141 @@
-/* ----- LÄNKLISTAN ---- */
-//hämtar från local storage eller startar som tom array
-const linksList_array = JSON.parse(localStorage.getItem("linkList")) || []
-/* --------------------- */
+const snabblänkarContent_container = document.getElementById("snabblänkar-content_container");
+const addLinkDialog_container = document.getElementById("add-link-dialog_container");
 
-
-//Kortet för alla länkar
-const snabblänkar_activityCard = document.getElementById("snabblänkar_activity-card");
-//container för länkItems
-const cardContent_Container = snabblänkar_activityCard.querySelector(".card-content_container")
-
-// Lagra lägg-till-knapp:
 const addLink_btn = document.getElementById("add-link_btn");
 
+const sidrubrik_input = document.getElementById("sidrubrik_input");
+const webbadress_input = document.getElementById("webbadress_input");
 
-const inputComponent = `
-<div id="add-link_component">
+const confirmAddLink_btn = document.getElementById("confirm-add-Link_btn");
+const exitAddLink_btn = document.getElementById("exit-add-Link_btn");
 
-    <div id="add-link-input_container">
-        <p><strong>Lägg till länk: </strong></p>
-        <input type="text" id="sidrubrik_input" placeholder="Sidrubrik här">
-        <input type="text" id="webbadress_input" placeholder="Webbadress här">
-    </div>
-
-    <div id="add-link-buttons_container">
-        <button id="confirm-add-Link_btn">Lägg till</button>
-        <button id="exit-add-Link_btn">&#10005</button>
-    </div>
-
-</div>
-`
+let linksList_array = JSON.parse(localStorage.getItem("linkList")) || [];
 
 
-// när initiala knappen klickas...
+addLinkDialog_container.style.display = "none";
+
+renderLinklist();
+
+
 addLink_btn.addEventListener("click", () => {
-    // initialknapp tars bort...
-    snabblänkar_activityCard.removeChild(addLink_btn);
-    // inputkomponent läggs till...
-    snabblänkar_activityCard.innerHTML += inputComponent;
+    addLinkDialog_container.removeAttribute("style");
+    addLink_btn.style.display = "none";
 
-    //lagra område för knappar:
-    const addLinkButtons_container = document.getElementById("add-link-buttons_container");
-    //Eventlyssnare på knapparna:
-    addLinkButtons_container.addEventListener("click", (event) => {
+    exitAddLink_btn.addEventListener("click", () => {
+        sidrubrik_input.value = "";
+        webbadress_input.value = "";
 
-        //om exitknapp trycks på...
-        if (event.target.id == "exit-add-Link_btn") {
-            returnFromAddlinkDialog();
-        }
+        addLinkDialog_container.style.display = "none";
+        addLink_btn.removeAttribute("style")
+    });
+
+    confirmAddLink_btn.addEventListener("click", () => {
+
+        const sidrubrik = sidrubrik_input.value.trim();
+        let webbadress = webbadress_input.value.trim();
+        // console.log(sidrubrik, webbadress); 
 
 
-        // när lägg-till knapp trycks
-        if (event.target.id == "confirm-add-Link_btn") {
-            console.log("läggtill knapp tryckt")
+        if (sidrubrik.length > 0 && webbadress.length > 0) {
+            console.log("värde finns")
 
-            const rubrik = document.getElementById("sidrubrik_input").value.trim();
-            const webbadress = document.getElementById("webbadress_input").value.trim();
-
-            //om båda rutorna är ifyllda...
-            if (rubrik.length > 0 && webbadress.length > 0) {
-                console.log("saker sker")
-
-                //Skapar länkobjekt att lagra:
-                const linkObject = {
-                    name: rubrik,
-                    link: webbadress
-                };
-
-                //skickar in i array
-                linksList_array.push(linkObject);
-                //Skickar arrayen in i local storage:
-                localStorage.setItem("linkList", JSON.stringify(linksList_array));
-
-                returnFromAddlinkDialog();
-
+            if (!webbadress.includes("http")) {
+                console.log("http saknas");
+                webbadress = "http://" + webbadress;
+                console.log(webbadress);
             };
 
-        };
+            const listItem = {
+                name: sidrubrik,
+                link: webbadress,
+                id: sidrubrik + webbadress
+            };
+            // console.log(listItem);
+
+            if (linksList_array.some((item) => { return item.id === listItem.id })) {
+                sidrubrik_input.value = "";
+                webbadress_input.value = "";
+                alert("Dubblett finns.");
+            } else {
+                linksList_array.push(listItem);
+                console.log(linksList_array);
+
+                localStorage.setItem("linkList", JSON.stringify(linksList_array));
+                renderLinklist();
+                sidrubrik_input.value = "";
+                webbadress_input.value = "";
+
+                addLinkDialog_container.style.display = "none";
+                addLink_btn.removeAttribute("style")
+
+            }
+
+        }
 
     });
+
+
+
+
+
+})
+
+
+
+
+
+
+function renderLinklist() {
+    let listItemsRoRender = linksList_array.map((item) => {
+        return `
+        
+        <div class="card-item">
+        <a href="${item.link}" target="_blank">
+            <p>${item.name}</p>
+        </a>
+            <div class="cross" id="linkId:${item.id}">&#10005;</div>
+          
+        </div>
+       
+            `;
+    });
+
+    listItemsRoRender = listItemsRoRender.join("");
+    snabblänkarContent_container.innerHTML = listItemsRoRender;
+
+
+
+
+
+
+
+};
+
+
+
+snabblänkarContent_container.addEventListener("click", (event) => {
+
+    console.log(event)
+
+    if (event.target.className == "cross") {
+        // console.log("kryss var klickad");
+        const crossId = event.target.id.replace("linkId:", "");
+        // console.log(crossId);
+
+        linksList_array = linksList_array.reduce((acc, item) => {
+
+            if (item.id !== crossId) {
+                acc.push(item)
+            }
+            return acc
+
+        }, [])
+
+        console.log(linksList_array);
+        localStorage.setItem("linkList", JSON.stringify(linksList_array));
+        renderLinklist();
+
+    }
+
 
 });
-
-
-/* ========== FUNKTION ÅTERGÅR FRÅN ADDLINK_DIALOG ========== */
-function returnFromAddlinkDialog() {
-    //tar bort hela add-link-komponenten
-    snabblänkar_activityCard.removeChild(document.getElementById("add-link_component"));
-    //Visar initiala knapp igen: 
-    snabblänkar_activityCard.appendChild(addLink_btn);
-};
-
-
-/* ========== FUNKTION RENDERAR LÄNKLISTAN ========== */
-renderLinkList()
-
-function renderLinkList() {
-    console.log(linksList_array)
-
-    let linkList_Components = linksList_array.map((item) => {
-        return `
-        <div class="card-item">
-            <a href="${item.link}" target="_blank">
-                <p>${item.name}</p> <div class="cross">&#10005</div>
-            </a>
-        </div>
-        `
-    });
-
-    linkList_Components = linkList_Components.join(" ");
-
-    cardContent_Container.innerHTML = linkList_Components
-
-
-    console.log(cardContent_Container)
-
-
-
-
-    console.log(linkList_Components)
-
-};

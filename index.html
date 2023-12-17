@@ -18,71 +18,92 @@
 
 <body>
 
+    <!-- KLOCKA OCH DATUM -->
+    <section id="date-and-time_section">
+        <p id="time-container"></p>
+        <p id="date-container"></p>
+    </section>
+
+
+
+
+    <!-- REDIGERBAR RUBRIK -->
+    <h1 contenteditable="true"></h1>
+
+
+
+
+
+    <section id="activity-cards_section">
+
+
+        <!-- SNABBLÄNKAR -->
+        <article class="activity-card" id="snabblänkar_activity-card">
+
+            <h2>Snabblänkar</h2>
+
+            <div class="card-content_container" id="snabblänkar-content_container">
+            </div>
+
+            <div id="add-link-dialog_container">
+                <div id="add-link-input_container">
+                    <p><strong>Lägg till länk: </strong></p>
+                    <input type="text" id="sidrubrik_input" placeholder="Sidrubrik här">
+                    <input type="text" id="webbadress_input" placeholder="Webbadress här">
+                </div>
+
+                <div id="add-link-buttons_container">
+                    <button id="confirm-add-Link_btn">Lägg till</button>
+                    <button id="exit-add-Link_btn">&#10005;</button>
+                </div>
+            </div>
+
+            <button id="add-link_btn">Lägg till länk</button>
+
+        </article>
+
+
+        <!-- VÄDER -->
+        <article class="activity-card" id="väder_activity-card">
+            <h2>Väder</h2>
+            <div class="card-content_container">
+                <div class="card-item">fredag
+                    <p class="label"> 2grader</p>
+                    <p class="label"> regnigt</p>
+                </div>
+                <div class="card-item">fredag
+                    <p class="label"> 2grader</p>
+                    <p class="label"> regnigt</p>
+                </div>
+            </div>
+        </article>
+
+
+        <!-- ... -->
+        <article class="activity-card" id="..._activity-card">
+            <h2>[...]</h2>
+        </article>
+
+
+        <!-- ANTECKNINGAR -->
+        <article class="activity-card" id="anteckningar_activity-card">
+
+            <h2>Anteckningar</h2>
+            <textarea></textarea>
+        </article>
+
+    </section>
+
+
+
+
+
+    <button id="randomize-background_btn">
+        Slumpa ny bakgrund id randomize-background_btn
+    </button>
+
+
+
 </body>
-
-<section id="date-and-time_section">
-    <p id="time-container"></p>
-    <p id="date-container"></p>
-</section>
-
-<h1 contenteditable="true"></h1>
-
-<section id="activity-cards_section">
-
-
-    <!-- Här matar vi in kort eventuellt dynamiskt -->
-
-    <article class="activity-card" id="snabblänkar_activity-card">
-        <!-- Aktivitetskort, class="activity-card" id="snabblänkar_activity-card" -->
-        <h2>Överskrift</h2>
-        <div class="card-content_container">
-            <div class="card-item">google</div>
-            <div class="card-item">notion</div>
-            <div class="card-item">chat gpt</div>
-            <div class="card-item">
-                <a href="item.link"></a>
-                <p>item.name</p>
-            </div>
-            <div class="card-item">google</div>
-            <div class="card-item">notion</div>
-            <div class="card-item">chat gpt</div>
-            <div class="card-item">amazon</div>
-            <div class="card-item">google</div>
-            <div class="card-item">notion</div>
-            <div class="card-item">chat gpt</div>
-            <div class="card-item">amazon</div>
-        </div>
-        <button id="add-link_btn">Lägg till länk</button>
-
-    </article>
-
-    <article class="activity-card" id="snabblänkar_activity-card">
-        <!-- Aktivitetskort, class="activity-card" id="snabblänkar_activity-card" -->
-        <h2>Överskrift</h2>
-        <div class="card-content_container">
-            <div class="card-item">idag</div>
-            <div class="card-item">imorgon</div>
-            <div class="card-item">fredag
-                <p class="label"> 2grader</p>
-                <p class="label"> regnigt</p>
-            </div>
-        </div>
-    </article>
-
-    <article class="activity-card" id="snabblänkar_activity-card">
-        <h2>[...]</h2>
-    </article>
-
-    <article class="activity-card" id="snabblänkar_activity-card">
-
-        <h2>Överskrift</h2>
-        <textarea name="" id="" cols="" rows="5"></textarea>
-    </article>
-
-</section>
-
-<button id="randomize-background_btn">
-    Slumpa ny bakgrund, id="randomize-background_btn"
-</button>
 
 </html>
