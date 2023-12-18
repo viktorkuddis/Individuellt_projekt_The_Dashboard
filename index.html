@@ -10,6 +10,7 @@
     <script src="./js/clockAndDate_function.js" defer></script>
     <script src="./js/editableHeadding.js" defer></script>
     <script src="./js/linkList.js" defer></script>
+    <script src="./js/weather.js" defer></script>
 
     <script src="./js/main.js" defer></script>
 
@@ -66,14 +67,26 @@
         <!-- VÄDER -->
         <article class="activity-card" id="väder_activity-card">
             <h2>Väder</h2>
-            <div class="card-content_container">
-                <div class="card-item">fredag
-                    <p class="label"> 2grader</p>
-                    <p class="label"> regnigt</p>
+            <div class="card-content_container" id="väder-content_container">
+                <div class="card-item">
+                    <div>
+                        <p><strong>Nu</strong></p>
+                        <div clas="labelsContainer" id="labelsContainer_today">
+                            <p class="label" id="temp_today">---</p>
+                            <p class="label" id="weatherDescription_today">---</p>
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="card-item">fredag
-                    <p class="label"> 2grader</p>
-                    <p class="label"> regnigt</p>
+                <div class="card-item">
+                    <span><strong>Imorgon</strong></span>
+                    <span id="timetamp-weathertomorrow">--:--</span>
+
+                    <div clas="labelsContainer" id="labelsContainer_tomorrow">
+                        <p class="label" id="temp_tomorrow">---</p>
+                        <p class="label" id="weatherDescription_tomorrow">---</p>
+                    </div>
                 </div>
             </div>
         </article>
