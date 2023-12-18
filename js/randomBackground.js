@@ -1,17 +1,26 @@
 
-// Laddar inden bakgrund som är sparad:
+const randomizeBackground_btn = document.getElementById("randomize-background_btn");
 
+// Laddar in den bakgrund som är sparad från local storage till variabel:
 let background = localStorage.getItem("backgroundImage") || false;
+// console.log("background =" + background);
 
-console.log("background =" + background);
-
-//Om ingen bakgrundsbild finns sparad så genererar vi en vid start:
+/* Om ingen bakgrundsbild finns sparad så genererar vi en vid start.
+(Funktionen kallar även på en annan funktion som renderar bakgrunden till sidan): */
 if (background == false) {
     randomBackground();
 };
 
+// När knapp för slumpa ny bakgrund klickas så genereras ny bild:
+randomizeBackground_btn.addEventListener("click", () => {
+    randomBackground();
+})
 
 
+
+
+
+/*  ===== Funktioner ===== */
 
 
 async function randomBackground() {
@@ -22,7 +31,7 @@ async function randomBackground() {
         const data = await res.json();
 
         //hämtar url till bilden plus parameter för bredden:
-        const img = data.urls.raw + "&w=1900";
+        const img = data.urls.raw + "&w=1800";
 
         //Uppdaterar backgrundvariabeln
         background = img;
@@ -43,6 +52,7 @@ async function randomBackground() {
 }
 
 
+// ------------------------------------------
 
 
 renderBackround();
