@@ -289,4 +289,19 @@ input {
         height: clamp(250px, 60vh, 420px);
     }
 
+    /* --- VÄDER --- */
+    .weather_cardItem {
+        display: flex;
+        text-align: left;
+        gap: unset;
+        padding-right: 0.5rem;
+        justify-content: unset;
+    }
+
+    .weather_cardItem img {
+        /* background-color: #222222; */
+        height: 4rem;
+        margin: 0 0.5rem 0 0.5rem;
+    }
+
 }
