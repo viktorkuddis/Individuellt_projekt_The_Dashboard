@@ -66,28 +66,40 @@
 
         <!-- VÄDER -->
         <article class="activity-card" id="väder_activity-card">
-            <h2>Väder</h2>
+            <h2 id="väder_headding">Väder</h2>
             <div class="card-content_container" id="väder-content_container">
-                <div class="card-item">
+
+                <div class="card-item weather_cardItem">
+                    <div id="icon-weather_today">
+                        <!-- icon kommer här -->
+                    </div>
+
                     <div>
                         <p><strong>Nu</strong></p>
+
                         <div clas="labelsContainer" id="labelsContainer_today">
                             <p class="label" id="temp_today">---</p>
                             <p class="label" id="weatherDescription_today">---</p>
                         </div>
-
-                    </div>
-
-                </div>
-                <div class="card-item">
-                    <span><strong>Imorgon</strong></span>
-                    <span id="timetamp-weathertomorrow">--:--</span>
-
-                    <div clas="labelsContainer" id="labelsContainer_tomorrow">
-                        <p class="label" id="temp_tomorrow">---</p>
-                        <p class="label" id="weatherDescription_tomorrow">---</p>
                     </div>
                 </div>
+
+                <div class="card-item weather_cardItem">
+                    <div id="icon-weather_tomorrow">
+                        <!-- icon kommer här -->
+                    </div>
+
+                    <div>
+                        <span><strong>Imorgon</strong></span>
+                        <span id="timetamp-weathertomorrow">--:--</span>
+
+                        <div clas="labelsContainer" id="labelsContainer_tomorrow">
+                            <p class="label" id="temp_tomorrow">---</p>
+                            <p class="label" id="weatherDescription_tomorrow">---</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </article>
 
