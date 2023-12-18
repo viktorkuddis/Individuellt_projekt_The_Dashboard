@@ -28,7 +28,7 @@ function errorcallback(e) {
 //hämtar väder api och skickar ut info i domen.
 //(hämtar från 2 olika api)
 function successcallback(position) {
-    console.log("Position:"); console.log(position);
+    // console.log("Position:"); console.log(position);
 
     const lon = position.coords.longitude;
     const lat = position.coords.latitude;
@@ -40,12 +40,12 @@ function successcallback(position) {
     getCurrentWeather();
     async function getCurrentWeather() {
         let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=sv&appid=${apikey}`);
-        console.log("Respons current:"); console.log(res);
+        // console.log("Respons current:"); console.log(res);
 
         //Om ok
         if (res.ok) {
             let data = await res.json();
-            console.log("Data current:"); console.log(data);
+            // console.log("Data current:"); console.log(data);
 
             //Skickar ut i domen:
             iconWeathertoday.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="">`
@@ -65,11 +65,11 @@ function successcallback(position) {
     getWeatherprognos();
     async function getWeatherprognos() {
         let res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=sv&appid=${apikey}`);
-        console.log("Respons forecast:"); console.log(res);
+        // console.log("Respons forecast:"); console.log(res);
 
         if (res.ok) {
             let data = await res.json()
-            console.log("Data forecast:"); console.log(data);
+            // console.log("Data forecast:"); console.log(data);
 
             //Skickar ut i domen:
 
