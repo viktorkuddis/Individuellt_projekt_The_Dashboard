@@ -45,11 +45,13 @@ async function randomBackground() {
 
 
 
-randomBackground();
+renderBackround();
 
 function renderBackround() {
     const body = document.querySelector("body");
-    console.log(body)
+    console.log(body);
+
+    body.style.backgroundImage = `url("${background}")`
 
 
 };
