@@ -1,3 +1,4 @@
+const väder_headding = document.getElementById("väder_headding")
 const weatherContent_container = document.getElementById("väder-content_container")
 
 const tempToday_label = document.getElementById("temp_today");
@@ -47,6 +48,9 @@ function successcallback(position) {
             //Skickar ut i domen:
             tempToday_label.innerHTML = Math.round(data.main.temp) + "°C";
             weatherDescriptionToday_label.innerHTML = data.weather[0].description;
+
+            //Skickar ut stad i domen:
+            väder_headding.innerHTML += " - " + data.name;
 
         } else {
             // om misslyckat....
