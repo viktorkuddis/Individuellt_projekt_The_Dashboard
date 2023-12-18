@@ -1,9 +1,11 @@
 const väder_headding = document.getElementById("väder_headding")
 const weatherContent_container = document.getElementById("väder-content_container")
 
+const iconWeathertoday = document.getElementById("icon-weather_today")
 const tempToday_label = document.getElementById("temp_today");
 const weatherDescriptionToday_label = document.getElementById("weatherDescription_today");
 
+const iconWeathertomorrow = document.getElementById("icon-weather_tomorrow")
 const timestampWeathertomorrow_label = document.getElementById("timetamp-weathertomorrow")
 const tempTomorrow_label = document.getElementById("temp_tomorrow");
 const weatherDescriptionTomorrow_label = document.getElementById("weatherDescription_tomorrow");
@@ -46,6 +48,7 @@ function successcallback(position) {
             console.log("Data current:"); console.log(data);
 
             //Skickar ut i domen:
+            iconWeathertoday.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="">`
             tempToday_label.innerHTML = Math.round(data.main.temp) + "°C";
             weatherDescriptionToday_label.innerHTML = data.weather[0].description;
 
@@ -75,6 +78,8 @@ function successcallback(position) {
             1 dygn = 8 steg från nu  = index 8. 
             index 8 + 1 index = index 9 */
 
+
+            iconWeathertomorrow.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.list[9].weather[0].icon}@2x.png" alt="icon">`
             timestampWeathertomorrow_label.innerHTML = (data.list[9].dt_txt).split(" ")[1].slice(0, 5);//plockar ut klockslaget ut tidsstämpeln
             tempTomorrow_label.innerHTML = Math.round(data.list[9].main.temp) + "°C";
             weatherDescriptionTomorrow_label.innerHTML = data.list[9].weather[0].description;

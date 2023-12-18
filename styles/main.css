@@ -125,6 +125,7 @@ button:hover {
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 0.3rem;
     padding: 0.3rem;
+    margin: 0.2rem 0 0.2rem 0;
     display: inline-block;
 }
 
@@ -242,6 +243,20 @@ input {
 
 .cross:hover {
     background-color: rgb(255, 255, 255, 0.5);
+}
+
+/* --- VÄDER --- */
+.weather_cardItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-right: 2rem;
+    justify-content: center;
+}
+
+.weather_cardItem img {
+    /* background-color: #222222; */
+    height: 4rem;
 }
 
 
