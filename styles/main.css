@@ -310,4 +310,8 @@ textarea {
         margin: 0 0.5rem 0 0.5rem;
     }
 
+    textarea {
+        min-height: unset;
+    }
+
 }
