@@ -107,7 +107,11 @@ buddyList_div.addEventListener("click", (event) => {
 
                 //Visar knapp för att låta pokemon återvända:
                 buddyReturn_button.removeAttribute("style");
-                buddyReturn_button.innerHTML = `${buddyName}, återvänd!`
+                buddyReturn_button.innerHTML = `${buddyName}, ÅTERVÄND!`
+                //när knappen klickas återvänder pokemonen
+                buddyReturn_button.addEventListener("click", () => {
+                    buddy_container.innerHTML = "";
+                })
 
             } else {
                 console.error(res);
