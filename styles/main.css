@@ -273,6 +273,39 @@ textarea {
 }
 
 
+/* ----- BUDDY ----- */
+#buddy-content_container {
+    height: 100%;
+    min-height: 150px;
+
+}
+
+#buddy_container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#buddy_container img {
+    height: 150px;
+}
+
+.buddy-list,
+#buddy-return_button {
+
+    font-size: smaller;
+
+
+
+
+    ;
+    margin-bottom: 0.3rem;
+}
+
+
+
 
 
 
