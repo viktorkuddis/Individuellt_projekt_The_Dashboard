@@ -1,5 +1,22 @@
 
+/* 
+
+getpokedex():
+Först hämtas alla pokemon och filtreras ner 
+till starters och skickas till arrayen buddys.
+Funktionen anropar i sin tur funktioneen som renderar alternativen till domen
+*/
+
+
+
+const buddyList_div = document.getElementById("buddy-list");
+
+let buddys = [];
+
+
 getPokedex();
+
+
 
 async function getPokedex() {
     //anropar pokedex med limit på 151 st
@@ -14,7 +31,8 @@ async function getPokedex() {
         pokedex = pokedex.results;
         // console.log(pokedex);
 
-        const buddys = pokedex.filter((pokemon) => {
+        // skickar buddys till buddys array.
+        buddys = pokedex.filter((pokemon) => {
 
             let namesToReturn =
                 [
@@ -32,15 +50,26 @@ async function getPokedex() {
             return namesToReturn.includes(pokemon.name);
         });
 
-        console.log(buddys)
+        console.log(buddys);
 
-
-
-
-
-
+        renderBudyList();
 
     } else {
         console.error(res);
     };
+};
+
+
+
+function renderBudyList() {
+    let buddyListToRender = buddys.map((pokemon) => {
+        return `
+            <button class="buddy-list">${pokemon.name.toUpperCase()}</button>`;
+    });
+
+    buddyList_div.innerHTML = buddyListToRender.join("");
+
+    console.log(buddiListToRender);
+
 }
+
