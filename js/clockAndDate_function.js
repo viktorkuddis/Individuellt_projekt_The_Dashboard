@@ -27,6 +27,11 @@ const nameOfDay = [
     "lördag"
 ];
 
+
+//Anropar funktion. Sedan en gång varje sekund.
+clockAndDate();
+setInterval(clockAndDate, 1000);
+
 function clockAndDate() {
 
     // timme, minut datum månad år
