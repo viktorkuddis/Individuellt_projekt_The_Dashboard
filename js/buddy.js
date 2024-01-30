@@ -80,6 +80,7 @@ async function getPokedex() {
             if (e.target.nodeName == "BUTTON") {
                 console.log(e.target);
                 gtag("event", "clicked_pokemon", {
+                    'debug_mode': 'true',
                     "pokemon": e.target.innerHTML
                 })
                 console.log(e.target.innerHTML);
