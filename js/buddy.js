@@ -82,7 +82,7 @@ async function getPokedex() {
                 gtag("event", "clicked_pokemon", {
                     "pokemon": e.target.innerHTML
                 })
-
+                console.log(e.target.innerHTML);
             };
         });
 
