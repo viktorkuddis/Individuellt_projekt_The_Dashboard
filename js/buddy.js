@@ -74,6 +74,18 @@ async function getPokedex() {
 
         renderBudyList();
 
+
+        //gtag- Vilken pokemon är poppulärast????
+        buddyList_div.addEventListener("click", (e) => {
+            if (e.target.nodeName == "BUTTON") {
+                console.log(e.target);
+                gtag("event", "clicked_pokemon", {
+                    "pokemon": e.target.innerHTML
+                })
+                console.log(e.target.innerHTML);
+            };
+        });
+
     } else {
         console.error(res);
     };
@@ -93,6 +105,8 @@ function renderBudyList() {
     buddyList_div.innerHTML = buddyListToRender.join("");
 
 }
+
+
 
 
 
